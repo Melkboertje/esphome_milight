@@ -13,7 +13,7 @@ esphome:
   #     - "-D ALT_SPI_SS_PIN=4"
 
 external_components:
-  - source: github://hencou/esphome_components
+  - source: github://Melkboertje/esphome_milight
     components: mi
 
 esp8266:
