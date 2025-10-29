@@ -169,9 +169,9 @@ void MiLightClient::updateStatus(MiLightStatus status, uint8_t groupId) {
 #endif
 
   //<added by HC>
-  if (status == MiLightStatus::OFF) {
-    this->updateBrightness(0);
-  }
+  //if (status == MiLightStatus::OFF) {
+  //  this->updateBrightness(0);
+  //}
   //</added by HC>
 
   currentRemote->packetFormatter->updateStatus(status, groupId);
@@ -184,9 +184,9 @@ void MiLightClient::updateStatus(MiLightStatus status) {
 #endif
 
   //<added by HC>
-  if (status == MiLightStatus::OFF) {
-    this->updateBrightness(0);
-  }
+  //if (status == MiLightStatus::OFF) {
+  //  this->updateBrightness(0);
+  //}
   //</added by HC>
 
   currentRemote->packetFormatter->updateStatus(status);
@@ -443,9 +443,9 @@ void MiLightClient::handleEffect(const std::string& effect) {
     return;
   }
   int effectId = atoi(effect.substr(3, 2).c_str());
-  if (effectId < 0 || effectId > 9) {
+  if (effectId < 0 || effectId > 8) {
     #ifdef DEBUG_CLIENT_COMMANDS
-    Serial.printf_P(PSTR("Invalid effect ID at position 3-4: %d. MiLights only support effect ids 1-9."), effectId);
+    Serial.printf_P(PSTR("Invalid effect ID at position 3-4: %d. MiLights only support effect ids 1-8."), effectId);
     #endif
     return;
   }
@@ -499,3 +499,4 @@ void MiLightClient::onUpdateBegin(EventHandler handler) {
 void MiLightClient::onUpdateEnd(EventHandler handler) {
   this->updateEndHandler = handler;
 }
+
